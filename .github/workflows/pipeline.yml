@@ -1,0 +1,27 @@
+name: pipeline
+
+on: push
+
+jobs:
+  pipeline:
+    name: Pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Install requirements
+        run : |
+          pip install -r requirements.txt
+
+      - name: flake8
+        run: |
+          flake8 .
+
+      - name: mypy
+        run: |
+          mypy .
+
+      - name: pytest
+        run: |
+          pytest
