@@ -5,10 +5,12 @@ on: push
 jobs:
   pipeline:
     name: Pipeline
-    runs-on: python:3.9
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          python-version: '3.9'
 
       - name: Install requirements
         run : |
