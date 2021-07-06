@@ -1,5 +1,6 @@
 from db import DummyDbService
 
+
 def test_dummy_db(mocker):
     db = DummyDbService()
     u1 = mocker.sentinel.u1

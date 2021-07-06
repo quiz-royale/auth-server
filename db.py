@@ -10,7 +10,7 @@ class DbService(abc.ABC):
 
 class DummyDbService(DbService):
     _USERS = [
-        models.User(uid=1, username='Noob', password='12345'),
+        models.User(uid=1, username="Noob", password="12345"),
     ]
 
     def get_users(self) -> list[models.User]:
