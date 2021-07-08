@@ -19,11 +19,16 @@ def login():
     db = DummyDbService()
     if request.method == 'POST':
         try:
-            user = db.get_user_by_credentials(request.form['username'], request.form['password'])
+            user = db.get_user_by_credentials(
+                request.form['username'],
+                request.form['password'],
+            )
         except NoSuchUserException as e:
             return e.message, 400
 
-        return jsonify({'token': create_token(user.username, str(user.uid))}), 200
+        return jsonify(
+            {'token': create_token(user.username, str(user.uid))},
+        ), 200
     return 'Method must be post!', 404
 
 

@@ -9,7 +9,10 @@ class DbService(abc.ABC):
         ...
 
     @abc.abstractmethod
-    def get_user_by_credentials(self, username: str, password: str) -> models.User:
+    def get_user_by_credentials(self,
+                                username: str,
+                                password: str,
+                                ) -> models.User:
         ...
 
 
@@ -21,7 +24,10 @@ class DummyDbService(DbService):
     def get_users(self) -> list[models.User]:
         return self._USERS
 
-    def get_user_by_credentials(self, username: str, password: str) -> models.User:
+    def get_user_by_credentials(self,
+                                username: str,
+                                password: str,
+                                ) -> models.User:
         for user in self.get_users():
             if user.username == username and user.password == password:
                 return user
