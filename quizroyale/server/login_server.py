@@ -17,19 +17,15 @@ def hello_world():
 @app.route('/login', methods=['POST'])
 def login():
     db = DummyDbService()
-    if request.method == 'POST':
-        try:
-            user = db.get_user_by_credentials(
-                request.form['username'],
-                request.form['password'],
-            )
-        except NoSuchUserException as e:
-            return e.message, 400
+    try:
+        user = db.get_user_by_credentials(
+            request.form['username'],
+            request.form['password'],
+        )
+    except NoSuchUserException as e:
+        return e.message, 400
 
-        return jsonify(
-            {'token': create_token(user.username, str(user.uid))},
-        ), 200
-    return 'Method must be post!', 404
+    return jsonify({'token': create_token(user.username, str(user.uid))},), 200
 
 
 def create_token(username: str, user_id: str):
