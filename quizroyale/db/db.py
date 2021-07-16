@@ -9,10 +9,11 @@ class DbService(abc.ABC):
         ...
 
     @abc.abstractmethod
-    def get_user_by_credentials(self,
-                                username: str,
-                                password: str,
-                                ) -> models.User:
+    def get_user_by_credentials(
+        self,
+        username: str,
+        password: str,
+     ) -> models.User:
         ...
 
 
