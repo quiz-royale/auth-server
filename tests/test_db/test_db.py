@@ -1,4 +1,4 @@
-from db import DummyDbService
+from quizroyale.db.db import DummyDbService
 
 
 def test_dummy_db(mocker):
