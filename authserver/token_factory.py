@@ -2,6 +2,7 @@ import jwt
 import time
 from db.models import User
 
+
 def create(user: User):
     return jwt.encode(
         {
