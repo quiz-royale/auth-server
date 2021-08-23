@@ -6,3 +6,4 @@ class User:
     uid: int
     username: str
     password: str
+    refresh_token: str
