@@ -1,6 +1,6 @@
 import abc
-from quizroyale.db import models
-from quizroyale.db.errors import NoSuchUserException
+from authserver.db import models
+from authserver.db.errors import NoSuchUserException
 
 
 class DbService(abc.ABC):
